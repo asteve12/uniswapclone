@@ -7,7 +7,7 @@ import ethLogo from "../assets/eth.png"
 import uniswapLogo from "../assets/uniswap.png"
 import { TransactionContext } from "../context/TransactionContext."
 
-
+// sk2lVotHenoKCprAnE0JBkUrjZy0uVNt5soBQh3ANKUQIucXSxHqG97of9iv57kYclfEvRQCAdikPGE0jOD6hodHAVbO99lKeyVcuKVf2nmmw4MUaQ3Rp2oyLS8uNbat88xEWNUL6Tv1nG0PVdWKII7YpkVrQ34E4yUASaqIiFXwKtzjIlYH
 const style = {
     wrapper: `p-4 w-screen flex justify-between items-center`,
     headerLogo: `flex w-1/4 items-center justify-start`,
@@ -25,7 +25,14 @@ const style = {
 
 const Header = () => {
     const [selectedNav, setSelectedNav] = useState("swap")
-    const {currentAcct,connectWallet } = useContext(TransactionContext)
+    const { currentAcct, connectWallet } = useContext(TransactionContext)
+    const [userName, setUserName] = useState()
+    
+    useEffect(() => {
+        if (!currentAcct) return;
+        setUserName(`${currentAcct.slice(0, 7)}...${currentAcct.slice(35)}`)
+        
+    },[currentAcct])
     return (
         <div className={style.wrapper}>
             <div className={style.headerLogo}>
@@ -70,7 +77,7 @@ const Header = () => {
                 </div>
                 {currentAcct ?
                     (<div className={`${style.button} ${style.buttonPadding}`}>
-                         <div className={style.buttonTextContainer}>0x...b7u88</div>
+                        <div className={style.buttonTextContainer}>{userName}</div>
                 </div>
                 )
                  : (
