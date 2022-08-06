@@ -3,10 +3,7 @@ import { RiSettings3Fill } from 'react-icons/ri'
 import { AiOutlineDown } from 'react-icons/ai'
 import ethLogo from '../assets/eth.png'
 import { useContext } from 'react'
-import {
-  // TransactionContext
-  TransactionContext
-} from '../context/TransactionContext'
+import { TransactionContext } from '../context/TransactionContext'
 import Modal from 'react-modal'
 import { useRouter } from 'next/router'
 import TransactionLoader from './TransactionLoader'
