@@ -55,7 +55,7 @@ const Header = () => {
                     </div>
                     <a href="https://info.uniswap.org/#/"
                         target="_blank"
-                        rel="noreference"
+                        rel="noreferrer" 
                     >
                         <div className={style.navItem}>
                             Charts <FiArrowUpRight></FiArrowUpRight>
