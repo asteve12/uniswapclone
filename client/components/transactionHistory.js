@@ -7,17 +7,17 @@ import ethLogo from '../assets/ethCurrency.png'
 import { FiArrowUpRight } from 'react-icons/fi'
 
 const style = {
-  wrapper: `h-full text-white box-border select-none  w-screen flex-1  flex items-end justify-end  px-8`,
-  txHistoryItem: `bg-[#191a1e] rounded-lg px-4 py-2 my-2 flex items-center justify-end`,
-  txDetails: `flex items-center`,
-  toAddress: `text-[#f48706] mx-2`,
-  txTimestamp: `mx-2`,
-  etherscanLink: `flex items-center text-[#2172e5]`,
+  wrapper: `h-full text-white box-border select-none  text-center w-full flex-1  flex items-end justify-end  px-8  md:w-auto   `,
+  txHistoryItem: `bg-[#191a1e] rounded-lg px-4 py-2 my-2 flex  justify-center flex-col w-full md:flex-row md:w-auto lg:w-auto`,
+  txDetails: `flex items-center w-full justify-center md:w-auto md:flex-end`,
+  toAddress: `text-[#f48706] mx-2  `,
+  txTimestamp: `mx-2 flex justify-center md:justify-end`,
+  etherscanLink: `flex items-center text-[#2172e5] justify-center md:justify-end`,
 }
 
 const TransactionHistory = () => {
   const { isLoading, currentAcct } = useContext(TransactionContext)
-  const [transactionHistory, setTransactionHistory] = useState ([])
+  const [transactionHistory, setTransactionHistory] = useState ([]) 
 
   useEffect(() => {
       ; (async () => {
@@ -37,7 +37,7 @@ const TransactionHistory = () => {
 
   return (
     <div className={style.wrapper}>
-      <div>
+      <div className="w-full md:w-auto" >
         {transactionHistory &&
           transactionHistory?.map((transaction, index) => (
             <div className={style.txHistoryItem} key={index}>
