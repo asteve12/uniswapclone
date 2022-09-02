@@ -10,13 +10,13 @@ import { TransactionContext } from "../context/TransactionContext"
 // sk2lVotHenoKCprAnE0JBkUrjZy0uVNt5soBQh3ANKUQIucXSxHqG97of9iv57kYclfEvRQCAdikPGE0jOD6hodHAVbO99lKeyVcuKVf2nmmw4MUaQ3Rp2oyLS8uNbat88xEWNUL6Tv1nG0PVdWKII7YpkVrQ34E4yUASaqIiFXwKtzjIlYH
 const style = {
     wrapper: `p-4 w-screen flex justify-center md:justify-between items-center`,
-    headerLogo: `hidden md:flex w-1/4 items-center justify-start`,
-    nav: `flex-1 flex justify-center width-100 items-center `,
-    navItemsContainer: `flex bg-[#191B1F] rounded-3xl justify-center left-auto md:absolute md:top-[-100]  lg:absolute lg:bottom-0 lg:left-10 `,
-    navItem: `px-4 py-2 m-1 flex items-center  text-10px md:text-lg font-semibold text-[0.9rem] cursor-pointer rounded-3xl`,
+    headerLogo: `hidden md:hidden w-1/4 items-center justify-start lg:flex `,
+    nav: `flex-1 flex  justify-center width-100 items-center md:justify-between `,
+    navItemsContainer: `flex bg-[#191B1F] rounded-3xl  left-auto md:absolute md:top-[-100]  lg:absolute lg:bottom-0 lg:left-10 `,
+    navItem: `px-auto py-auto m-1 flex items-center  text-10px md:text-lg md:px-4 md:py-2 font-semibold text-[0.9rem] cursor-pointer rounded-3xl`,
     activeNavItem: `bg-[#20242A]`,
     buttonsContainer: `hidden  md:flex flex w-1/4 justify-end items-center`,
-    button: `flex hidden md:flex items-center bg-[#191B1F] rounded-2xl mx-2 text-[0.9rem] font-semibold cursor-pointer`,
+    button: `flex  md:flex items-center bg-[#191B1F] rounded-2xl mx-2 text-[0.9rem] font-semibold cursor-pointer`,
     buttonPadding: `p-2`,
     buttonTextContainer: `h-8 flex items-center`,
     buttonIconContainer: `flex items-center justify-center w-8 h-8`,
@@ -100,6 +100,26 @@ const Header = () => {
                 </div>
 
             </div>
+
+            <section className="flex top-20 absolute md:hidden lg:hidden ">
+                
+            {currentAcct ?
+                    (<div className={`${style.button} ${style.buttonPadding}`}>
+                        <div className={style.buttonTextContainer}>{userName}</div>
+                </div>
+                )
+                 : (
+                     <div
+                     onClick={() => connectWallet()}
+                     className={`${style.button} ${style.buttonPadding}`}
+                 >
+                     <div className={`${style.buttonAccent} ${style.buttonPadding}`}>
+                         Connect Wallet
+                     </div>
+ 
+                 </div>
+                )}
+            </section>
 
         </div>
     )
